@@ -28,27 +28,7 @@ attr_reader(:name, :id)
     self.name() == another_stylist.name && self.id() ==another_stylist.id()
   end
 
-  # define_singleton_method(:find_name) do |stylist|
-  #   found_stylist = nil
-  #   Stylist.all().each() do |person|
-  #     if person.name() == stylist
-  #       found_stylist = stylist
-  #     end
-  #   end
-  #   found_stylist
-  # end
-  #
-  # define_singleton_method(:find_id) do |id|
-  #   found_stylist = nil
-  #   Stylist.all.each() do |person|
-  #     if person.id() == id
-  #       found_stylist = id
-  #     end
-  #   end
-  #   found_stylist
-  # end
-
-
-
-
+  define_singleton_method(:clear) do
+    DB.exec("DELETE FROM stylists *;")
+  end
 end

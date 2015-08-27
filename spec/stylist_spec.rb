@@ -30,27 +30,12 @@ describe Stylist do
       expect(test_stylist).to(eq(test_stylist1))
     end
   end
-  # 
-  # describe('.find_name') do
-  #   it("will find a stylist") do
-  #     test_stylist = Stylist.new({:name => "Penny Thompson", :id => nil})
-  #     test_stylist1 = Stylist.new({:name => "Randy Johnson", :id => nil})
-  #     test_stylist.save()
-  #     test_stylist1.save()
-  #     expect(Stylist.find_name("Penny Thompson")).to(eq(test_stylist))
-  #   end
-  # end
-  #
-  # describe('.find_id') do
-  #   it("will find a stylist") do
-  #     test_stylist = Stylist.new({:name => "Penny Thompson", :id => nil})
-  #     test_stylist1 = Stylist.new({:name => "Randy Johnson", :id => nil})
-  #     test_stylist.save()
-  #     test_stylist1.save()
-  #     expect(Stylist.find_id(test_stylist)).to(eq(test_stylist))
-  #   end
-  # end
 
-
-
+  describe('.clear') do
+    it("will clear the stylists from the .all array") do
+      test_client = Stylist.new({:name => "Randy Johnson", :id => nil, :stylist_id => 1})
+      Stylist.clear()
+      expect(Stylist.all()).to(eq([]))
+    end
+  end
 end
