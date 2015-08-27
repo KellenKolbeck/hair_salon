@@ -28,4 +28,9 @@ attr_reader(:name, :id, :stylist_id)
   define_method(:==) do |another_client|
     self.name() == another_client.name() && self.id() ==another_client.id()
   end
+
+  define_singleton_method(:clear) do
+    DB.exec("DELETE FROM clients *;")
+  end
+
 end
