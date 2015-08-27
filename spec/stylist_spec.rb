@@ -33,9 +33,20 @@ describe Stylist do
 
   describe('.clear') do
     it("will clear the stylists from the .all array") do
-      test_client = Stylist.new({:name => "Randy Johnson", :id => nil, :stylist_id => 1})
+      test_stylist = Stylist.new({:name => "Randy Johnson", :id => nil, :stylist_id => 1})
       Stylist.clear()
       expect(Stylist.all()).to(eq([]))
+    end
+  end
+
+  describe('#delete') do
+    it("will remove a stylist from the database table") do
+      test_stylist = Stylist.new({:name => "Randy Johnson", :id => nil, :stylist_id => 1})
+      test_stylist.save()
+      test_stylist1 = Stylist.new({:name => "Penny Thompson", :id => nil})
+      test_stylist1.save()
+      test_stylist.delete()
+      expect(Stylist.all()).to(eq([test_stylist1]))
     end
   end
 end
