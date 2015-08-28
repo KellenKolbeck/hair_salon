@@ -1,0 +1,20 @@
+.jumbotron {
+  text-align:center;
+  background-color:#8FBBBF;
+  width:100% !important;
+  color: white;
+}
+
+.link {
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+body {
+  background-color:#D9C5AD;
+}
+
+li {
+  font-size: 40px;
+}

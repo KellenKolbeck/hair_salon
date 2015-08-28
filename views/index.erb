@@ -1,17 +1,11 @@
-<h1>Welcome to Bob and Tom's Hair Salon</h1>
+<div class="jumbotron">
+  <h1>Welcome to Bob and Tom's Hair Salon</h1>
+</div>
 
-<h3>Our stylists:</h3>
+<div class="link">
+  <a href="/stylist_list">View our list of stylists!</a>
+</div>
 
-<ul>
-  <% @name.each() do |stylist| %>
-  <li><a href=<% "/new_stylist" %>><%= stylist.name() %></a></li>
-  <% end %>
-</ul>
-
-
-<form class="form-group" action="/new_stylist" method="post">
-  <label for="name">Enter a stylist</label>
-  <input type="text" name="name" id="name" placeholder="ex. Penny Thompson">
-
-  <button type="submit" class="btn btn-danger">Add stylist!</button>
-</form>
+<div class="link">
+  <a href="/new_stylist">Add a new stylist!</a>
+</div>
