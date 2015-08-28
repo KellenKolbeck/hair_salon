@@ -12,9 +12,19 @@ get('/') do
   erb(:index)
 end
 
-post("/new_stylist") do
-  name = params.fetch('name')
-  id = params.fetch('id').to_i
+get("/new_stylist") do
   @name = Stylist.all()
   erb(:index)
 end
+
+post("/new_stylist") do
+  name = params.fetch('name')
+  @name = Stylist.all()
+  stylist = Stylist.new({:name => name, :id => nil})
+  stylist.save()
+  redirect("/new_stylist")
+end
+
+# get("/stylist_client_list") do
+#
+# end

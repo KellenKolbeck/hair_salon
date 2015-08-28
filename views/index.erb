@@ -4,7 +4,7 @@
 
 <ul>
   <% @name.each() do |stylist| %>
-  <li><%= stylist.name() %> </li>
+  <li><a href=<% "/new_stylist" %>><%= stylist.name() %></a></li>
   <% end %>
 </ul>
 
