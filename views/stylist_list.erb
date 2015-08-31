@@ -1,20 +1,23 @@
 <div class="jumbotron">
   <% if @stylists.any?() %>
   <h1>These are our current stylists:</h1>
-</div>
+
   <ul>
     <% @stylists.each() do |stylist| %>
     <li><a href="/stylist_list/<%= stylist.id()%>"><%= stylist.name() %></a> </li>
     <% end %>
   </ul>
 
-  <% else %>
-<div class="jumbotron">
-  <h1>There are no stylists yet!</h1>
 </div>
 
-<div class="link">
-  <a href="/">Home</a>
+<div class= "link">
+  <a href="/">Back to main page</a>
+</div>
+
+  <% else %>
+
+<div class="jumbotron">
+  <h1>There are no stylists yet!</h1>
 </div>
 
   <% end %>
