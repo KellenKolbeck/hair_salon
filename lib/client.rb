@@ -1,6 +1,6 @@
 class Client
 
-attr_reader(:name, :id, :stylist_id)
+  attr_reader(:name, :id, :stylist_id)
 
   define_method(:initialize) do |attributes|
     @name = attributes.fetch(:name)
@@ -43,4 +43,11 @@ attr_reader(:name, :id, :stylist_id)
     DB.exec("UPDATE clients SET name = '#{@name}' WHERE id = #{@id};")
   end
 
+  define_singleton_method(:find) do |id|
+    Client.all().each do |client|
+      if client.id() == id
+        return client
+      end
+    end
+  end
 end

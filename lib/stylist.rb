@@ -41,4 +41,12 @@ attr_reader(:name, :id)
     @id = self.id()
     DB.exec("UPDATE stylists SET name = '#{@name}' WHERE id = #{@id};")
   end
+
+  define_singleton_method(:find) do |id|
+    Stylist.all().each do |stylist|
+      if stylist.id() == id
+        return stylist
+      end
+    end
+  end
 end
