@@ -49,4 +49,16 @@ attr_reader(:name, :id)
       end
     end
   end
+
+  define_method(:clients) do
+    list_clients = []
+    clients = DB.exec("SELECT * FROM clients WHERE id = #{self.id()}")
+    clients.each() do |client|
+      name = client.fetch("name")
+      stylist_id = client.fetch("stylist_id").to_i()
+      id = client.fetch("id").to_i()
+      list_clients.push(Stylist.new(:name => name, :id =>id, :stylist_id => stylist_id))
+    end
+    list_clients
+  end
 end

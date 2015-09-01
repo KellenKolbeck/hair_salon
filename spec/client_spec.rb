@@ -73,7 +73,7 @@ describe Client do
       test_client.save()
       test_client1 = Client.new({:name => "Penny Thompson", :id => nil, :stylist_id => 2})
       test_client1.save()
-      expect(List.find(test_client1.id())).to(eq(test_client1))
+      expect(Client.find(test_client1.id())).to(eq(test_client1))
     end
   end
 end

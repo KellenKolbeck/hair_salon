@@ -1,4 +1,6 @@
-<h1><%= @stylist.name() %></h1>
+<div class="jumbotron">
+
+  <h1><%= @stylist.name() %></h1>
 
   <% if @stylist.clients().any?() %>
     <h3>Here are all the clients for this stylist:</h3>
@@ -13,20 +15,27 @@
     <p>There are no clients for this stylist!</p>
   <% end %>
 
+  <br></br>
 
+  <h3>Add a client to <%= @stylist.name()%>:</h3>
 
+  <form action="/clients" method="post">
+      <input id="stylist_page" name="stylist_page" type="hidden" value="<%= @stylist.id() %>">
 
-<h3>Add a client to <%= @stylist.name() %> </h3>
+      <label for="title">Name of the client:</label>
+      <input id="title" name="title" type="text">
 
-<form action="/clients" method="post">
-    <input id="stylist_page" name="stylist_page" type="hidden" value="<%= @stylist.id() %>">
+      <button type="submit" class="btn btn-danger">Add client</button>
+  </form>
 
-    <label for="title">Name of the client:</label>
-    <input id="title" name="title" type="text">
+  <br></br>
 
-    <button type="submit">Add client</button>
-</form>
+  <div class="link">
+    <a href="/stylist_list">Return to Stylist List</a>
+  </div>
 
-<div class="container">
-  <a href="/"><button class="btn">Home</a>
+  <div class="link">
+    <a href="/">Return to Homepage</a>
+  </div>
+
 </div>

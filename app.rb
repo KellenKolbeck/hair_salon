@@ -30,5 +30,6 @@ end
 
 get("/stylist/:id") do
   @stylist = Stylist.find(params.fetch("id").to_i)
+  @clients = Client.all()
   erb(:stylist_page)
 end
