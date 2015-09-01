@@ -33,3 +33,12 @@ get("/stylist/:id") do
   @clients = Client.all()
   erb(:stylist_page)
 end
+
+post("/stylist/:id/clients") do
+  client_name = params.fetch("client_name")
+  stylist_id = params.fetch("stylist_id")
+  @stylist = Stylist.find(params.fetch("id").to_i())
+  client = Client.new({:client_name => client_name, :id => id, :stylist_id => stylist_id})
+  client.save()
+  redirect("/stylist/:id")
+end
