@@ -2,6 +2,13 @@
 
   <h1><%= @stylist.name() %></h1>
 
+  <form  action="/stylist_list" method="post">
+    <input type="hidden" name="name" value="<%= @stylist.id() %>">
+    <input type="hidden" name="_method" value="delete">
+
+    <button type="submit" class="btn btn-danger">Delete stylist</button>
+  </form>
+
   <% if @stylist.clients().any?() %>
     <h3>Here are all the clients for this stylist:</h3>
 
@@ -19,11 +26,10 @@
 <div class="form">
   <h3>Add a client to <%= @stylist.name()%>:</h3>
 
-  <form action="/stylist/:id/clients" method="post">
-      <input id="stylist_page" name="stylist_page" type="hidden" value="<%= @stylist.id() %>">
-
+  <form action="/stylist/:id" method="post">
       <label for="client_name">Name of the client:</label>
       <input id="client_name" name="client_name" type="text">
+      <input id="stylist_id" name="stylist_id" type="hidden" value="<%= @stylist.id() %>">
 
       <button type="submit" class="btn btn-danger">Add client</button>
   </form>

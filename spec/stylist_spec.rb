@@ -73,9 +73,9 @@ describe Stylist do
     it("will return an array of clients for that stylist") do
       test_stylist = Stylist.new({:name => "Randy Johnson", :id => nil})
       test_stylist.save()
-      test_client = Client.new({:client_name => "Randy Johnson", :id => nil, :stylist_id => nil})
+      test_client = Client.new({:client_name => "Randy Johnson", :id => nil, :stylist_id => 1})
       test_client.save()
-      test_client1 = Client.new({:client_name => "Penny Thompson", :id => nil, :stylist_id => nil})
+      test_client1 = Client.new({:client_name => "Penny Thompson", :id => nil, :stylist_id => 1})
       test_client1.save()
       expect(test_stylist.clients()).to(eq([test_client, test_client1]))
     end

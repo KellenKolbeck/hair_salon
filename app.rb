@@ -34,11 +34,18 @@ get("/stylist/:id") do
   erb(:stylist_page)
 end
 
-post("/stylist/:id/clients") do
+post("/stylist/:id") do
+  id = Client.find(params.fetch("id").to_i)
   client_name = params.fetch("client_name")
-  stylist_id = params.fetch("stylist_id")
-  @stylist = Stylist.find(params.fetch("id").to_i())
+  stylist_id = Stylist.find(params.fetch("id").to_i())
   client = Client.new({:client_name => client_name, :id => id, :stylist_id => stylist_id})
   client.save()
-  redirect("/stylist/:id")
+  redirect("/stylist/#{@stylist.id}")
+end
+
+delete("/stylist:id") do
+  @new_stylist = Stylist.find(params.fetch("id").to_i())
+  @new_stylist.delete()
+  @stylists = Stylist.all()
+  erb(:stylist_list)
 end
